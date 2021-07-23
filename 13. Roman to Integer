@@ -1,0 +1,16 @@
+class Solution(object):
+    def romanToInt(self, s):
+        romanNum = {"I":1, "IV": 4, "IX":9, "V":5, "X":10, "XL":40, "XC":90, "L":50, "C":100, "CD": 400, "CM":900, "D":500, "M":1000}
+        
+        num = 0 
+        i = 0 
+        while i < len(s):
+            if i + 1 < len(s) and s[i:i+2] in romanNum:
+                num += romanNum[s[i:i+2]]
+                i += 2
+            else:
+                num += romanNum[s[i]]
+                i+=1
+                
+        return num
+            
